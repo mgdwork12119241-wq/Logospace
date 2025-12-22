@@ -1,4 +1,4 @@
-# Generative Spatial Simulator (mgd-gi)
+# Generative Spatial Simulator (mgd-gi)\n\nA proposal for a future AI interface where human self-awareness is transformed into spatial reality.
 
 This project explores a new interaction paradigm with AI:
 instead of asking for answers, users **build space itself**.
@@ -84,7 +84,7 @@ export class SpatialEntity {
 }
 ```
 
-## Authorship & Timeline
+## Open Questions\n\nThis project is a conceptual exploration, and we invite the community to discuss the fundamental questions it raises:\n\n- Can spatial construction precede symbolic reasoning in AI?\n- Is dimensional growth a prerequisite for general intelligence?\n- What would persistence mean in a spatial AI mind?\n\n---\n\n## Authorship & Timeline
 
 This repository documents the first public conceptual and technical exploration of this interface idea.
 
