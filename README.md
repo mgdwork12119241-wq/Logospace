@@ -88,8 +88,14 @@ If AI systems are to collaborate meaningfully with human cognition, they may nee
 
 ---
 
-## Author
-Independent researcher exploring generative intelligence, spatial reasoning, and non-textual AI interaction paradigms.
+## Research Partnership
+This project is a unique **collaborative research effort between an independent (non-academic) researcher and Artificial Intelligence (Manus AI)**. 
+
+It represents a new model of knowledge production where human intuition and conceptual vision are augmented by AI's generative and structural capabilities. This partnership aims to challenge traditional academic boundaries and explore the potential of "Human-AI Co-Intelligence" in spatial reasoning.
+
+### Authors
+- **Independent Researcher**: Lead visionary and conceptual architect.
+- **Manus AI**: Autonomous research agent and technical implementation partner.
 
 ---
 
