@@ -11,6 +11,8 @@ export class SpatialCamera {
         this.targetX = 0;
         this.targetY = 0;
         this.targetZoom = 1.0;
+        this.rotation = 0;
+        this.targetRotation = 0;
         this.lerpFactor = 0.1;
     }
 
@@ -18,6 +20,7 @@ export class SpatialCamera {
         this.x += (this.targetX - this.x) * this.lerpFactor;
         this.y += (this.targetY - this.y) * this.lerpFactor;
         this.zoom += (this.targetZoom - this.zoom) * this.lerpFactor;
+        this.rotation += (this.targetRotation - this.rotation) * this.lerpFactor;
     }
 
     pan(dx, dy) {
@@ -40,9 +43,18 @@ export class SpatialCamera {
     }
 
     worldToScreen(worldX, worldY, width, height) {
+        // Apply rotation
+        const dx = worldX - this.x;
+        const dy = worldY - this.y;
+        const cos = Math.cos(this.rotation);
+        const sin = Math.sin(this.rotation);
+        
+        const rx = dx * cos - dy * sin;
+        const ry = dx * sin + dy * cos;
+
         return {
-            x: (worldX - this.x) * this.zoom + width / 2,
-            y: (worldY - this.y) * this.zoom + height / 2
+            x: rx * this.zoom + width / 2,
+            y: ry * this.zoom + height / 2
         };
     }
 

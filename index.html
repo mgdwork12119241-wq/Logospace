@@ -44,6 +44,34 @@
             display: flex;
             gap: 10px;
             align-items: center;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
+        #toolbar {
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            padding: 10px 25px;
+        }
+        .tool-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .tool-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .tool-btn.active {
+            background: #00ffcc;
+            color: #000;
         }
         input[type="text"] {
             background: rgba(255, 255, 255, 0.05);
@@ -84,7 +112,16 @@
             <input type="text" id="url-input" placeholder="Paste URL or type concept...">
             <button id="add-btn">Add to Space</button>
         </div>
-        <div id="status">mgd-gi v2.0 | Spatial Knowledge Engine | Pan to move, Scroll to zoom</div>
+        
+        <div id="toolbar" class="panel">
+            <button class="tool-btn" id="tool-select">🖱️ Select</button>
+            <button class="tool-btn" id="tool-move">🖐️ Pan</button>
+            <button class="tool-btn" id="tool-reset">🏠 Reset View</button>
+            <div style="width: 1px; background: rgba(255,255,255,0.2); margin: 0 5px;"></div>
+            <button class="tool-btn" id="tool-grid">🌐 Toggle Grid</button>
+        </div>
+
+        <div id="status">mgd-gi v2.1 | Spatial Knowledge Engine | Drag to move, Scroll to zoom, Corner to resize</div>
     </div>
 
     <script type="module">
@@ -137,6 +174,17 @@
                 entities.push(new ConceptNode(null, worldPos.x, worldPos.y, val));
             }
             urlInput.value = '';
+        };
+
+        // Toolbar Logic
+        document.getElementById('tool-reset').onclick = () => {
+            camera.targetX = 0;
+            camera.targetY = 0;
+            camera.targetZoom = 1.0;
+        };
+
+        document.getElementById('tool-grid').onclick = () => {
+            engine.showGrid = !engine.showGrid;
         };
     </script>
 </body>

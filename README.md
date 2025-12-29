@@ -1,4 +1,4 @@
-# mgd-gi | Spatial Knowledge Engine v2.0
+# mgd-gi | Spatial Knowledge Engine v2.1
 
 > "Knowledge is not a list, it's a space. Thought is not a sequence, it's navigation."
 
@@ -8,7 +8,9 @@
 This project is built on the philosophy that human cognition is inherently spatial. By mapping concepts, media, and web content into a 2D/3D space, we enable a more intuitive way to explore complex relationships and research topics.
 
 ## 🚀 Features
-- **Infinite Spatial Canvas**: Smooth pan and zoom navigation (Google Earth style).
+- **Infinite Spatial Canvas**: Smooth pan, zoom, and rotation navigation.
+- **Dynamic Resizing**: Resize any spatial entity (Web, Video, Concept) directly in the space.
+- **Interactive Toolbar**: Quick access to selection, panning, and view resetting.
 - **Modular Architecture**: Clean separation between the engine, entities, and knowledge layers.
 - **Multi-Entity Support**:
   - **Concept Nodes**: Abstract ideas and labels.
@@ -16,7 +18,7 @@ This project is built on the philosophy that human cognition is inherently spati
   - **Video Screens**: Integrated YouTube/Vimeo players.
   - **Image Nodes**: Visual assets.
 - **Intelligent Embedding**: Automatic URL parsing and content detection.
-- **Vanilla Tech Stack**: Built with pure HTML5, CSS3, and JavaScript for maximum performance and zero dependencies.
+- **Vanilla Tech Stack**: Built with pure HTML5, CSS3, and JavaScript for maximum performance.
 
 ## 🛠 Architecture
 - `/engine`: Core systems (Camera, RenderEngine, InputHandler).

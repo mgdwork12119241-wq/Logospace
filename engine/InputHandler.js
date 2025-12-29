@@ -10,6 +10,7 @@ export class InputHandler {
         this.lastMouseX = 0;
         this.lastMouseY = 0;
         this.draggedEntity = null;
+        this.resizingEntity = null;
 
         this.init();
     }
@@ -27,12 +28,21 @@ export class InputHandler {
         const screenY = e.clientY - rect.top;
         const worldPos = this.camera.screenToWorld(screenX, screenY, this.canvas.width, this.canvas.height);
 
-        // Check for entity selection/drag
+        // Check for entity selection/drag/resize
         this.draggedEntity = null;
+        this.resizingEntity = null;
+        
         for (let i = this.entities.length - 1; i >= 0; i--) {
             const entity = this.entities[i];
+            
+            if (entity.selected && entity.isOverResizeHandle(worldPos.x, worldPos.y)) {
+                this.resizingEntity = entity;
+                break;
+            }
+            
             if (entity.contains(worldPos.x, worldPos.y)) {
                 this.draggedEntity = entity;
+                this.entities.forEach(ent => ent.selected = false);
                 entity.selected = true;
                 // Bring to front
                 this.entities.splice(i, 1);
@@ -56,6 +66,11 @@ export class InputHandler {
 
         if (this.isPanning) {
             this.camera.pan(-dx, -dy);
+        } else if (this.resizingEntity) {
+            this.resizingEntity.width += dx / this.camera.zoom;
+            this.resizingEntity.height += dy / this.camera.zoom;
+            this.resizingEntity.width = Math.max(50, this.resizingEntity.width);
+            this.resizingEntity.height = Math.max(50, this.resizingEntity.height);
         } else if (this.draggedEntity) {
             this.draggedEntity.x += dx / this.camera.zoom;
             this.draggedEntity.y += dy / this.camera.zoom;
@@ -68,6 +83,7 @@ export class InputHandler {
     handleMouseUp() {
         this.isPanning = false;
         this.draggedEntity = null;
+        this.resizingEntity = null;
     }
 
     handleWheel(e) {

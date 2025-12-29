@@ -11,6 +11,7 @@ export class SpatialEntity {
         this.type = 'base';
         this.selected = false;
         this.dragging = false;
+        this.resizing = false;
         this.data = {};
     }
 
@@ -41,8 +42,22 @@ export class SpatialEntity {
 
     draw(ctx, x, y, w, h, zoom) {
         // To be overridden by subclasses
-        ctx.strokeStyle = this.selected ? '#00ffcc' : '#ffffff';
+        ctx.strokeStyle = this.selected ? '#00ffcc' : 'rgba(255, 255, 255, 0.3)';
         ctx.lineWidth = 2 * zoom;
         ctx.strokeRect(x - w / 2, y - h / 2, w, h);
+
+        if (this.selected) {
+            // Draw resize handle
+            ctx.fillStyle = '#00ffcc';
+            ctx.fillRect(x + w / 2 - 5 * zoom, y + h / 2 - 5 * zoom, 10 * zoom, 10 * zoom);
+        }
+    }
+
+    isOverResizeHandle(worldX, worldY) {
+        const handleSize = 20; // World units
+        return worldX >= this.x + this.width / 2 - handleSize &&
+               worldX <= this.x + this.width / 2 + handleSize &&
+               worldY >= this.y + this.height / 2 - handleSize &&
+               worldY <= this.y + this.height / 2 + handleSize;
     }
 }

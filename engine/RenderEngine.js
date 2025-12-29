@@ -32,6 +32,10 @@ export class RenderEngine {
         const { ctx, canvas, camera, entities } = this;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+        ctx.save();
+        // We don't rotate the whole context here because entities handle their own screen projection
+        // but we could apply global effects if needed.
+
         if (this.showGrid) {
             this.drawGrid();
         }
@@ -40,6 +44,8 @@ export class RenderEngine {
         entities.forEach(entity => {
             entity.render(ctx, camera, canvas.width, canvas.height);
         });
+        
+        ctx.restore();
     }
 
     drawGrid() {
