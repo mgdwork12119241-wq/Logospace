@@ -13,578 +13,564 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: #f8f9fa;
             color: #202124;
-            line-height: 1.6;
+            overflow: hidden;
+            height: 100vh;
         }
 
-        /* Header */
-        header {
+        /* Split Layout */
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            height: 100vh;
+        }
+
+        /* Left Panel - Info */
+        .left-panel {
             background: white;
-            padding: 16px 20px;
-            border-bottom: 1px solid #dadce0;
+            border-left: 1px solid #dadce0;
+            overflow-y: auto;
+            padding: 40px;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            flex-direction: column;
         }
 
         .logo {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: 500;
-            color: #1f2937;
+            margin-bottom: 24px;
+            color: #202124;
         }
 
         .logo span {
             color: #4285f4;
         }
 
-        nav a {
-            color: #5f6368;
-            text-decoration: none;
-            margin: 0 20px;
-            font-size: 14px;
-            transition: color 0.2s;
-        }
-
-        nav a:hover {
-            color: #202124;
-        }
-
-        /* Main Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .hero h1 {
-            font-size: 56px;
+        h1 {
+            font-size: 32px;
             font-weight: 400;
-            margin-bottom: 24px;
+            margin-bottom: 16px;
             color: #202124;
-            letter-spacing: -1px;
         }
 
-        .hero h1 span {
+        h1 span {
             color: #4285f4;
         }
 
-        .hero p {
-            font-size: 20px;
-            color: #5f6368;
-            margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Search Box */
-        .search-box {
-            max-width: 600px;
-            margin: 0 auto 40px;
-            background: white;
-            border: 1px solid #dadce0;
-            border-radius: 24px;
-            padding: 12px 20px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            box-shadow: 0 1px 6px rgba(32, 33, 36, 0.08);
-            transition: box-shadow 0.2s;
-        }
-
-        .search-box:focus-within {
-            box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
-            border-color: #dadce0;
-        }
-
-        .search-box input {
-            flex: 1;
-            border: none;
-            outline: none;
+        .subtitle {
             font-size: 16px;
-            background: transparent;
+            color: #5f6368;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        /* Input Section */
+        .input-section {
+            margin-bottom: 32px;
+        }
+
+        .input-section label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
             color: #202124;
         }
 
-        .search-box input::placeholder {
-            color: #9aa0a6;
-        }
-
-        .search-icon {
-            color: #9aa0a6;
-            font-size: 20px;
-        }
-
-        /* Buttons */
-        .button-group {
+        .input-group {
             display: flex;
-            gap: 12px;
-            justify-content: center;
-            margin-bottom: 60px;
-            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .input-group input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 1px solid #dadce0;
+            border-radius: 4px;
+            font-size: 14px;
+            background: white;
+            color: #202124;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .input-group input:focus {
+            border-color: #4285f4;
+        }
+
+        .input-group input::placeholder {
+            color: #9aa0a6;
         }
 
         .btn {
-            padding: 10px 24px;
-            border: 1px solid #dadce0;
+            padding: 12px 24px;
+            border: none;
             border-radius: 4px;
-            background: #f8f9fa;
-            color: #3c4043;
+            background: #4285f4;
+            color: white;
             font-size: 14px;
             font-weight: 500;
             cursor: pointer;
             transition: all 0.2s;
+            white-space: nowrap;
         }
 
         .btn:hover {
-            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-            background: #f8f9fa;
-            border: 1px solid #dadce0;
-        }
-
-        .btn-primary {
-            background: #4285f4;
-            color: white;
-            border: 1px solid #4285f4;
-        }
-
-        .btn-primary:hover {
             background: #3367d6;
-            border: 1px solid #3367d6;
             box-shadow: 0 1px 3px rgba(66, 133, 244, 0.3);
         }
 
-        /* Features Grid */
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn-secondary {
+            background: #f8f9fa;
+            color: #3c4043;
+            border: 1px solid #dadce0;
+        }
+
+        .btn-secondary:hover {
+            background: #f8f9fa;
+            border-color: #dadce0;
+        }
+
+        /* Features */
         .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            margin-bottom: 80px;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 32px;
-            border-radius: 8px;
-            border: 1px solid #dadce0;
-            transition: all 0.2s;
-        }
-
-        .feature-card:hover {
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-        }
-
-        .feature-icon {
-            font-size: 40px;
-            margin-bottom: 16px;
-        }
-
-        .feature-card h3 {
-            font-size: 18px;
-            font-weight: 500;
-            margin-bottom: 12px;
-            color: #202124;
-        }
-
-        .feature-card p {
-            font-size: 14px;
-            color: #5f6368;
-            line-height: 1.6;
-        }
-
-        /* AI Generator Section */
-        .ai-generator {
-            background: white;
-            border-radius: 8px;
-            border: 1px solid #dadce0;
-            padding: 40px;
-            margin-bottom: 80px;
-            text-align: center;
-        }
-
-        .ai-generator h2 {
-            font-size: 32px;
-            font-weight: 400;
-            margin-bottom: 16px;
-            color: #202124;
-        }
-
-        .ai-generator p {
-            font-size: 16px;
-            color: #5f6368;
             margin-bottom: 32px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
-        .generator-input {
-            max-width: 600px;
-            margin: 0 auto 24px;
-            background: #f8f9fa;
-            border: 1px solid #dadce0;
-            border-radius: 4px;
-            padding: 12px 16px;
+        .features h3 {
             font-size: 14px;
-        }
-
-        .generator-input textarea {
-            width: 100%;
-            border: none;
-            background: transparent;
-            outline: none;
-            font-family: inherit;
-            font-size: 14px;
-            resize: vertical;
-            min-height: 100px;
-            color: #202124;
-        }
-
-        .generator-input textarea::placeholder {
-            color: #9aa0a6;
-        }
-
-        .loading {
-            display: none;
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        .loading.active {
-            display: block;
-        }
-
-        .spinner {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid #f3f3f3;
-            border-top: 3px solid #4285f4;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-right: 10px;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .output {
-            display: none;
-            background: #f8f9fa;
-            border-radius: 4px;
-            padding: 20px;
-            margin-top: 20px;
-            text-align: right;
-        }
-
-        .output.active {
-            display: block;
-        }
-
-        .output h4 {
-            color: #4285f4;
-            margin-bottom: 12px;
-            font-size: 14px;
-        }
-
-        .output-content {
-            background: white;
-            border: 1px solid #dadce0;
-            border-radius: 4px;
-            padding: 16px;
-            color: #202124;
-            font-size: 14px;
-            line-height: 1.8;
-            text-align: right;
-        }
-
-        /* Comparison */
-        .comparison {
-            background: white;
-            border-radius: 8px;
-            border: 1px solid #dadce0;
-            padding: 40px;
-            margin-bottom: 80px;
-        }
-
-        .comparison h2 {
-            font-size: 32px;
-            font-weight: 400;
-            margin-bottom: 40px;
-            text-align: center;
-            color: #202124;
-        }
-
-        .comparison-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
-
-        .comparison-col h3 {
-            font-size: 18px;
             font-weight: 500;
-            margin-bottom: 20px;
+            margin-bottom: 12px;
             color: #202124;
         }
 
-        .comparison-col ul {
+        .feature-list {
             list-style: none;
         }
 
-        .comparison-col li {
-            padding: 12px 0;
-            border-bottom: 1px solid #f0f0f0;
-            font-size: 14px;
+        .feature-list li {
+            padding: 8px 0;
+            font-size: 13px;
             color: #5f6368;
+            border-bottom: 1px solid #f0f0f0;
         }
 
-        .comparison-col li:last-child {
+        .feature-list li:last-child {
             border-bottom: none;
         }
 
-        .comparison-col li:before {
+        .feature-list li:before {
             content: "✓ ";
             color: #4285f4;
             font-weight: bold;
             margin-left: 8px;
         }
 
-        /* Footer */
-        footer {
-            background: white;
-            border-top: 1px solid #dadce0;
-            padding: 20px;
-            text-align: center;
-            color: #5f6368;
-            font-size: 14px;
+        /* Output */
+        .output-section {
+            background: #f8f9fa;
+            border-radius: 4px;
+            padding: 16px;
+            margin-top: 24px;
         }
 
-        footer a {
+        .output-section h4 {
+            font-size: 12px;
+            font-weight: 600;
             color: #4285f4;
-            text-decoration: none;
-            margin: 0 12px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
         }
 
-        footer a:hover {
-            text-decoration: underline;
+        .output-list {
+            list-style: none;
+        }
+
+        .output-list li {
+            padding: 8px;
+            background: white;
+            border-radius: 4px;
+            margin-bottom: 8px;
+            font-size: 13px;
+            color: #202124;
+            border-right: 3px solid #4285f4;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .output-list li:hover {
+            background: #f0f0f0;
+            transform: translateX(-4px);
+        }
+
+        .output-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Right Panel - Canvas */
+        .right-panel {
+            background: #0a0a0a;
+            position: relative;
+            overflow: hidden;
+        }
+
+        canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .canvas-info {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #00ffcc;
+            padding: 12px 16px;
+            border-radius: 4px;
+            font-size: 12px;
+            border: 1px solid #00ffcc;
+        }
+
+        .loading {
+            display: none;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: #00ffcc;
+            padding: 12px 16px;
+            border-radius: 4px;
+            font-size: 12px;
+            border: 1px solid #00ffcc;
+            z-index: 100;
+        }
+
+        .loading.active {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .spinner {
+            width: 12px;
+            height: 12px;
+            border: 2px solid #00ffcc;
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 32px; }
-            .hero p { font-size: 16px; }
-            .comparison-grid { grid-template-columns: 1fr; }
-            header { flex-direction: column; gap: 16px; }
-            nav { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
-            nav a { margin: 0 8px; }
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            .right-panel {
+                display: none;
+            }
+        }
+
+        /* Scrollbar */
+        .left-panel::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .left-panel::-webkit-scrollbar-track {
+            background: #f8f9fa;
+        }
+
+        .left-panel::-webkit-scrollbar-thumb {
+            background: #dadce0;
+            border-radius: 4px;
+        }
+
+        .left-panel::-webkit-scrollbar-thumb:hover {
+            background: #bcc0c4;
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="logo">
-            🌌 <span>mgd-gi</span>
-        </div>
-        <nav>
-            <a href="#features">المميزات</a>
-            <a href="#generator">المحاكي</a>
-            <a href="https://github.com/mgdwork12119241-wq/mgd-gi" target="_blank">GitHub</a>
-            <a href="canvas.html">التطبيق</a>
-        </nav>
-    </header>
-
-    <!-- Main Content -->
     <div class="container">
-        <!-- Hero Section -->
-        <section class="hero">
+        <!-- Left Panel -->
+        <div class="left-panel">
+            <div class="logo">
+                🌌 <span>mgd-gi</span>
+            </div>
+
             <h1>محرك المعرفة <span>المكاني</span></h1>
-            <p>تطبيق ذكاء اصطناعي لتحويل الأفكار إلى كائنات مكانية تفاعلية</p>
-            
-            <div class="search-box">
-                <span class="search-icon">🔍</span>
-                <input type="text" placeholder="ابحث عن فكرة أو مفهوم...">
+            <p class="subtitle">
+                أدخل فكرة أو موضوع، وسيقوم محرك الذكاء الاصطناعي بتحليلها وتوليد أفكار مرتبطة في الفراغ المكاني التفاعلي.
+            </p>
+
+            <!-- Input Section -->
+            <div class="input-section">
+                <label>🤖 محاكي التوليد الذكي</label>
+                <div class="input-group">
+                    <input 
+                        type="text" 
+                        id="idea-input" 
+                        placeholder="مثال: الذكاء الاصطناعي..."
+                        onkeypress="if(event.key==='Enter') generateIdeas()"
+                    >
+                    <button class="btn" onclick="generateIdeas()">توليد</button>
+                </div>
             </div>
 
-            <div class="button-group">
-                <button class="btn btn-primary" onclick="document.getElementById('generator').scrollIntoView({behavior: 'smooth'})">
-                    🤖 جرّب محاكي AI
+            <!-- Features -->
+            <div class="features">
+                <h3>المميزات</h3>
+                <ul class="feature-list">
+                    <li>توليد أفكار ذكية تلقائياً</li>
+                    <li>عرض الأفكار في فراغ مكاني</li>
+                    <li>تحريك وتفاعل حدسي</li>
+                    <li>ربط الأفكار ببعضها</li>
+                    <li>دعم كامل للعربية</li>
+                </ul>
+            </div>
+
+            <!-- Output Section -->
+            <div class="output-section" id="output-section" style="display: none;">
+                <h4>الأفكار المولدة</h4>
+                <ul class="output-list" id="output-list"></ul>
+            </div>
+
+            <!-- Links -->
+            <div style="margin-top: auto; padding-top: 24px; border-top: 1px solid #dadce0;">
+                <button class="btn btn-secondary" onclick="window.location.href='canvas.html'" style="width: 100%; margin-bottom: 8px;">
+                    🚀 التطبيق الكامل
                 </button>
-                <button class="btn" onclick="window.location.href='canvas.html'">
-                    🚀 افتح التطبيق
-                </button>
-                <button class="btn" onclick="window.location.href='https://github.com/mgdwork12119241-wq/mgd-gi'" target="_blank">
-                    💻 الكود
+                <button class="btn btn-secondary" onclick="window.open('https://github.com/mgdwork12119241-wq/mgd-gi')" style="width: 100%;">
+                    💻 الكود على GitHub
                 </button>
             </div>
-        </section>
+        </div>
 
-        <!-- Features Section -->
-        <section id="features" class="features">
-            <div class="feature-card">
-                <div class="feature-icon">♾️</div>
-                <h3>فضاء لا نهائي</h3>
-                <p>تحرك بحرية في فضاء مكاني لا محدود، اسحب وكبّر وصغّر الأفكار</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">🧠</div>
-                <h3>ذكاء اصطناعي</h3>
-                <p>محرك AI يحلل ويربط الأفكار تلقائياً ويقترح علاقات جديدة</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">🌐</div>
-                <h3>محتوى متعدد</h3>
-                <p>ضع روابط، فيديوهات، صور، ومفاهيم في نفس الفضاء</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">📱</div>
-                <h3>على جميع الأجهزة</h3>
-                <p>ويب، iOS، Android مع دعم كامل للعربية والإنجليزية</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">🔗</div>
-                <h3>ربط ذكي</h3>
-                <p>اربط الأفكار ببعضها عبر المسافة المكانية والعلاقات</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">🎨</div>
-                <h3>تفاعل حدسي</h3>
-                <p>واجهة بسيطة وسهلة الاستخدام مثل الألعاب الحديثة</p>
-            </div>
-        </section>
-
-        <!-- AI Generator Section -->
-        <section id="generator" class="ai-generator">
-            <h2>🤖 محاكي التوليد الذكي</h2>
-            <p>أدخل فكرة أو موضوع، وسيقوم محرك الذكاء الاصطناعي بتحليلها وتوليد أفكار مرتبطة</p>
-            
-            <div class="generator-input">
-                <textarea id="input-text" placeholder="مثال: الذكاء الاصطناعي والتعليم..."></textarea>
-            </div>
-
-            <button class="btn btn-primary" onclick="generateIdeas()">
-                ✨ توليد أفكار
-            </button>
-
+        <!-- Right Panel - Canvas -->
+        <div class="right-panel">
+            <canvas id="spatial-canvas"></canvas>
             <div class="loading" id="loading">
                 <span class="spinner"></span>
-                <span>جاري التحليل والتوليد...</span>
+                <span>جاري التوليد...</span>
             </div>
-
-            <div class="output" id="output">
-                <h4>الأفكار المولدة:</h4>
-                <div class="output-content" id="output-content"></div>
+            <div class="canvas-info">
+                اسحب الأشكال • كبّر وصغّر • اربط الأفكار
             </div>
-        </section>
-
-        <!-- Comparison Section -->
-        <section class="comparison">
-            <h2>المقارنة</h2>
-            <div class="comparison-grid">
-                <div class="comparison-col">
-                    <h3>📐 AutoCAD</h3>
-                    <ul>
-                        <li>رسم أشكال هندسية</li>
-                        <li>تصميم وهندسة</li>
-                        <li>للمهندسين</li>
-                        <li>معقد ومتخصص</li>
-                        <li>سوق محدود</li>
-                    </ul>
-                </div>
-                <div class="comparison-col">
-                    <h3>🧠 محرك المعرفة</h3>
-                    <ul>
-                        <li>وضع كائنات معرفية</li>
-                        <li>تنظيم الأفكار</li>
-                        <li>للباحثين والطلاب</li>
-                        <li>بسيط وحدسي</li>
-                        <li>سوق عالمي ضخم</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+        </div>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>
-            © 2025 محرك المعرفة المكاني | 
-            <a href="https://github.com/mgdwork12119241-wq/mgd-gi" target="_blank">GitHub</a> |
-            <a href="https://github.com/mgdwork12119241-wq/mgd-gi/blob/master/LICENSE" target="_blank">الترخيص</a> |
-            <a href="https://github.com/mgdwork12119241-wq/mgd-gi/blob/master/CONTRIBUTING.md" target="_blank">المساهمة</a>
-        </p>
-    </footer>
-
     <script>
-        // AI Generator Simulator
+        // Canvas Setup
+        const canvas = document.getElementById('spatial-canvas');
+        const ctx = canvas.getContext('2d');
+        let cameraX = 0;
+        let cameraY = 0;
+        let zoom = 1;
+        let nodes = [];
+        let selectedNode = null;
+        let isDragging = false;
+        let dragOffsetX = 0;
+        let dragOffsetY = 0;
+
+        // Resize canvas
+        function resizeCanvas() {
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+            draw();
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        // Node class
+        class Node {
+            constructor(x, y, text, color) {
+                this.x = x;
+                this.y = y;
+                this.text = text;
+                this.color = color;
+                this.radius = 50;
+                this.vx = (Math.random() - 0.5) * 4;
+                this.vy = (Math.random() - 0.5) * 4;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                // Bounce off edges
+                if (this.x - this.radius < -2000) this.vx = Math.abs(this.vx);
+                if (this.x + this.radius > 2000) this.vx = -Math.abs(this.vx);
+                if (this.y - this.radius < -2000) this.vy = Math.abs(this.vy);
+                if (this.y + this.radius > 2000) this.vy = -Math.abs(this.vy);
+
+                // Friction
+                this.vx *= 0.99;
+                this.vy *= 0.99;
+            }
+
+            draw(ctx, cameraX, cameraY, zoom) {
+                const screenX = (this.x - cameraX) * zoom + canvas.width / 2;
+                const screenY = (this.y - cameraY) * zoom + canvas.height / 2;
+                const screenRadius = this.radius * zoom;
+
+                // Draw circle
+                ctx.beginPath();
+                ctx.arc(screenX, screenY, screenRadius, 0, Math.PI * 2);
+                ctx.strokeStyle = this.color;
+                ctx.lineWidth = 2;
+                ctx.stroke();
+
+                // Draw text
+                ctx.fillStyle = this.color;
+                ctx.font = `${Math.max(10, 12 * zoom)}px Arial`;
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(this.text, screenX, screenY);
+            }
+
+            contains(x, y) {
+                const screenX = (this.x - cameraX) * zoom + canvas.width / 2;
+                const screenY = (this.y - cameraY) * zoom + canvas.height / 2;
+                const screenRadius = this.radius * zoom;
+                const dx = x - screenX;
+                const dy = y - screenY;
+                return Math.sqrt(dx * dx + dy * dy) < screenRadius;
+            }
+        }
+
+        // Draw function
+        function draw() {
+            // Clear canvas
+            ctx.fillStyle = '#0a0a0a';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Draw grid
+            ctx.strokeStyle = 'rgba(0, 255, 204, 0.05)';
+            ctx.lineWidth = 1;
+            const gridSize = 100 * zoom;
+            const startX = Math.floor(cameraX / 100) * 100;
+            const startY = Math.floor(cameraY / 100) * 100;
+
+            for (let x = startX; x < startX + canvas.width / zoom; x += 100) {
+                const screenX = (x - cameraX) * zoom + canvas.width / 2;
+                ctx.beginPath();
+                ctx.moveTo(screenX, 0);
+                ctx.lineTo(screenX, canvas.height);
+                ctx.stroke();
+            }
+
+            for (let y = startY; y < startY + canvas.height / zoom; y += 100) {
+                const screenY = (y - cameraY) * zoom + canvas.height / 2;
+                ctx.beginPath();
+                ctx.moveTo(0, screenY);
+                ctx.lineTo(canvas.width, screenY);
+                ctx.stroke();
+            }
+
+            // Update and draw nodes
+            nodes.forEach(node => {
+                node.update();
+                node.draw(ctx, cameraX, cameraY, zoom);
+            });
+
+            // Draw connections
+            ctx.strokeStyle = 'rgba(0, 255, 204, 0.2)';
+            ctx.lineWidth = 1;
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = i + 1; j < nodes.length; j++) {
+                    const dx = nodes[i].x - nodes[j].x;
+                    const dy = nodes[i].y - nodes[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    if (distance < 400) {
+                        const x1 = (nodes[i].x - cameraX) * zoom + canvas.width / 2;
+                        const y1 = (nodes[i].y - cameraY) * zoom + canvas.height / 2;
+                        const x2 = (nodes[j].x - cameraX) * zoom + canvas.width / 2;
+                        const y2 = (nodes[j].y - cameraY) * zoom + canvas.height / 2;
+                        ctx.beginPath();
+                        ctx.moveTo(x1, y1);
+                        ctx.lineTo(x2, y2);
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            requestAnimationFrame(draw);
+        }
+
+        draw();
+
+        // Mouse events
+        canvas.addEventListener('mousedown', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            for (let node of nodes) {
+                if (node.contains(x, y)) {
+                    selectedNode = node;
+                    isDragging = true;
+                    dragOffsetX = x;
+                    dragOffsetY = y;
+                    break;
+                }
+            }
+        });
+
+        canvas.addEventListener('mousemove', (e) => {
+            if (isDragging && selectedNode) {
+                const rect = canvas.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const dx = x - dragOffsetX;
+                const dy = y - dragOffsetY;
+                selectedNode.x += dx / zoom;
+                selectedNode.y += dy / zoom;
+                dragOffsetX = x;
+                dragOffsetY = y;
+            }
+        });
+
+        canvas.addEventListener('mouseup', () => {
+            isDragging = false;
+            selectedNode = null;
+        });
+
+        canvas.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            const zoomSpeed = 0.1;
+            zoom += e.deltaY > 0 ? -zoomSpeed : zoomSpeed;
+            zoom = Math.max(0.5, Math.min(3, zoom));
+        });
+
+        // AI Generator
         const ideas = {
-            'الذكاء الاصطناعي': [
-                '🤖 التعلم الآلي والشبكات العصبية',
-                '🧠 معالجة اللغة الطبيعية',
-                '👁️ رؤية الحاسوب والتعرف على الصور',
-                '🎮 الألعاب والذكاء الاصطناعي',
-                '🔮 المستقبل والتطبيقات المحتملة'
-            ],
-            'التعليم': [
-                '📚 التعليم الإلكتروني والتعلم عن بعد',
-                '👨‍🎓 تطوير المهارات والتدريب',
-                '🎯 التعليم الشخصي والتكيفي',
-                '📊 تقييم الأداء والإحصائيات',
-                '🌍 التعليم العالمي والشامل'
-            ],
-            'التكنولوجيا': [
-                '💻 الحوسبة السحابية',
-                '🔐 الأمان والخصوصية',
-                '⚡ الأداء والتحسين',
-                '🌐 الويب والتطبيقات',
-                '📱 الأجهزة المحمولة'
-            ],
-            'الميتافيرس': [
-                '🌌 الواقع الافتراضي والمعزز',
-                '🎮 العوالم الرقمية',
-                '👥 التفاعل الاجتماعي',
-                '💰 الاقتصاد الرقمي',
-                '🔮 المستقبل الرقمي'
-            ]
+            'الذكاء الاصطناعي': ['🤖 التعلم الآلي', '🧠 معالجة اللغة', '👁️ رؤية الحاسوب', '🎮 الألعاب', '🔮 المستقبل'],
+            'التعليم': ['📚 التعليم الإلكتروني', '👨‍🎓 التدريب', '🎯 التعليم الشخصي', '📊 التقييم', '🌍 التعليم العالمي'],
+            'التكنولوجيا': ['💻 السحابة', '🔐 الأمان', '⚡ الأداء', '🌐 الويب', '📱 الأجهزة'],
+            'الميتافيرس': ['🌌 الواقع الافتراضي', '🎮 العوالم الرقمية', '👥 التفاعل الاجتماعي', '💰 الاقتصاد', '🔮 المستقبل']
         };
 
         function generateIdeas() {
-            const input = document.getElementById('input-text').value.trim();
-            
+            const input = document.getElementById('idea-input').value.trim();
             if (!input) {
                 alert('الرجاء إدخال فكرة أو موضوع');
                 return;
             }
 
-            const loading = document.getElementById('loading');
-            const output = document.getElementById('output');
-            const outputContent = document.getElementById('output-content');
+            document.getElementById('loading').classList.add('active');
 
-            // Show loading
-            loading.classList.add('active');
-            output.classList.remove('active');
-
-            // Simulate AI processing
             setTimeout(() => {
                 let generatedIdeas = [];
-
-                // Search for related ideas
                 for (const [key, values] of Object.entries(ideas)) {
                     if (input.includes(key) || key.includes(input)) {
                         generatedIdeas = values;
@@ -592,30 +578,32 @@
                     }
                 }
 
-                // If no exact match, generate random ideas
                 if (generatedIdeas.length === 0) {
                     const allIdeas = Object.values(ideas).flat();
                     generatedIdeas = allIdeas.sort(() => 0.5 - Math.random()).slice(0, 5);
                 }
 
-                // Display results
-                outputContent.innerHTML = generatedIdeas
-                    .map((idea, index) => `<div style="margin: 12px 0; padding: 12px; background: #f8f9fa; border-radius: 4px; border-right: 3px solid #4285f4;">
-                        ${idea}
-                    </div>`)
-                    .join('');
+                // Clear old nodes
+                nodes = [];
 
-                loading.classList.remove('active');
-                output.classList.add('active');
+                // Create new nodes
+                generatedIdeas.forEach((idea, index) => {
+                    const angle = (index / generatedIdeas.length) * Math.PI * 2;
+                    const distance = 300;
+                    const x = Math.cos(angle) * distance;
+                    const y = Math.sin(angle) * distance;
+                    const colors = ['#00ffcc', '#4285f4', '#ff6b6b', '#ffd93d', '#6bcf7f'];
+                    nodes.push(new Node(x, y, idea, colors[index % colors.length]));
+                });
+
+                // Show output
+                const outputList = document.getElementById('output-list');
+                outputList.innerHTML = generatedIdeas.map(idea => `<li>${idea}</li>`).join('');
+                document.getElementById('output-section').style.display = 'block';
+
+                document.getElementById('loading').classList.remove('active');
             }, 1500);
         }
-
-        // Allow Enter key to generate
-        document.getElementById('input-text').addEventListener('keypress', (e) => {
-            if (e.key === 'Enter' && e.ctrlKey) {
-                generateIdeas();
-            }
-        });
     </script>
 </body>
 </html>
